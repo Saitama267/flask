@@ -1,0 +1,53 @@
+{% extends "base.jinja" %}
+
+{% block header %}
+  <h1>{% block title %} Статистика {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<article class="post">
+    <table>
+      <tr>
+        <th>Розробників:</th>
+        <th>{{ statistics["item_number"] }}</th>
+      </tr>
+      <tr>
+        <th>Найбільше значення:</th>
+        <th>{{ statistics["max"] }}</th>
+      </tr>
+      <tr>
+        <th>Найменше значення:</th>
+        <th>{{ statistics["min"] }}</th>
+      </tr>
+      <tr>
+        <th>Середнє значення:</th>
+        <th>{{ statistics["mean"] }}</th>
+      </tr>
+      <tr>
+        <th>Загальна сума:</th>
+        <th>{{ statistics["total"] }}</th>
+      </tr>
+    </table>
+</article>
+<article class="post">
+    {% if search %}
+        <div><h2>Пошуковий запит</h2></div>
+    {% if 'all' in search %}
+        Пошук за запитом: "{{ search['all'] }}"
+    {% else %}
+        <table>
+          <tr>
+            <th>Поле</th>
+            <th>Значення</th>
+          </tr>
+            {% for field, value in search.items() %}
+              <tr>
+                <th>{{ field }}</th>
+                <th>{{ value }}</th>
+              </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endif %}
+</article>
+{% endblock %}
