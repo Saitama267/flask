@@ -13,10 +13,10 @@ def save():
     f = open('data.json', 'r+', encoding='utf-8')
     json_file = json.load(f)
     ln = len(json_file)
-    t = date.today()
+    t = date.now()
     dt = {
     "id":ln,
-    "date_now":t.strftime('%m/%d/%Y'),
+    "date_now":t,
     "name":"noname",
     "description":"no description"
     }
