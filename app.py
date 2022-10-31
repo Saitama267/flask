@@ -1,6 +1,6 @@
 from flask import Flask
 import json
-from datetime import date
+import datetime
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def save():
     f = open('data.json', 'r+', encoding='utf-8')
     json_file = json.load(f)
     ln = len(json_file)
-    t = date.now()
+    t = datetime.now()
     dt = {
     "id":ln,
     "date_now":t,
