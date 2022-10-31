@@ -16,7 +16,7 @@ def save():
     t = datetime.now()
     dt = {
     "id":ln,
-    "date_now":t,
+    "date_now":t.strftime("%d/%m/%Y %H:%M:%S"),
     "name":"noname",
     "description":"no description"
     }
